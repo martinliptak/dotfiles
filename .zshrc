@@ -95,9 +95,9 @@ alias ytw="yarn test:watch"
 alias yl="yarn lint"
 
 # D
-D() { cd ~/Documents/$1;  }
-_D() { _files -W ~/Documents -/; }
-compdef _D D
+p() { cd ~/Projects/$1;  }
+_p() { _files -W ~/Projects -/; }
+compdef _p p
 
 # h
 h() { heroku ${@:2} -a $1 }
