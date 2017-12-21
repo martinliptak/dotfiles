@@ -99,6 +99,16 @@ D() { cd ~/Documents/$1;  }
 _D() { _files -W ~/Documents -/; }
 compdef _D D
 
+# h
+h() { heroku ${@:2} -a $1 }
+_h() {
+  if [[ ! -f ~/.heroku-completion-apps ]]; then
+    heroku apps -A | grep -v '=' | cut -d' ' -f1 | awk 'NF' > ~/.heroku-completion-apps
+  fi
+  _values $(<~/.heroku-completion-apps)
+}
+compdef _h h
+
 # rbenv
 eval "$(rbenv init -)"
 
