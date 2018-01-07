@@ -90,6 +90,7 @@ fi
 # For a full list of active aliases, run `alias`.
 
 alias t="rspec"
+alias yd="yarn dev"
 alias yt="yarn test"
 alias ytw="yarn test:watch"
 alias yl="yarn lint"
