@@ -75,7 +75,7 @@ export LANG=en_US.UTF-8
 if [[ -n $SSH_CONNECTION ]]; then
   export EDITOR='vim'
 else
-  export EDITOR='atom'
+  export EDITOR='vim'
 fi
 
 # Compilation flags
@@ -89,30 +89,40 @@ fi
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
 
-alias t="rspec"
-alias yd="yarn dev"
+# alias t="rspec"
+alias y="yarn"
+alias ys="yarn start"
 alias yt="yarn test"
-alias ytw="yarn test:watch"
 alias yl="yarn lint"
+alias yb="yarn --cwd backend"
+alias yf="yarn --cwd frontend"
+alias hv="hivemind"
 
-# D
+# p
 p() { cd ~/Projects/$1;  }
 _p() { _files -W ~/Projects -/; }
 compdef _p p
 
 # h
-h() { heroku ${@:2} -a $1 }
-_h() {
-  if [[ ! -f ~/.heroku-completion-apps ]]; then
-    heroku apps -A | grep -v '=' | cut -d' ' -f1 | awk 'NF' > ~/.heroku-completion-apps
-  fi
-  _values $(<~/.heroku-completion-apps)
-}
-compdef _h h
+# h() { heroku ${@:2} -a $1 }
+# _h() {
+#  if [[ ! -f ~/.heroku-completion-apps ]]; then
+#    heroku apps -A | grep -v '=' | cut -d' ' -f1 | awk 'NF' > ~/.heroku-completion-apps
+#  fi
+#  _values $(<~/.heroku-completion-apps)
+# }
+# compdef _h h
 
 # rbenv
-eval "$(rbenv init -)"
+# eval "$(rbenv init -)"
 
-# nvm
-export NVM_DIR="$HOME/.nvm"
-. "/usr/local/opt/nvm/nvm.sh"
+# direnv
+eval "$(direnv hook zsh)"
+
+
+# tabtab source for serverless package
+# uninstall by removing these lines or running `tabtab uninstall serverless`
+[[ -f /Users/martin/Projects/Camp/camp/backend/node_modules/tabtab/.completions/serverless.zsh ]] && . /Users/martin/Projects/Camp/camp/backend/node_modules/tabtab/.completions/serverless.zsh
+# tabtab source for sls package
+# uninstall by removing these lines or running `tabtab uninstall sls`
+[[ -f /Users/martin/Projects/Camp/camp/backend/node_modules/tabtab/.completions/sls.zsh ]] && . /Users/martin/Projects/Camp/camp/backend/node_modules/tabtab/.completions/sls.zsh
