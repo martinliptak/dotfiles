@@ -95,6 +95,9 @@ alias wds="bin/webpack-dev-server"
 alias y="yarn"
 alias hv="hivemind"
 
+# shoot
+shoot() { kill -9 `ps ax | grep $1 | cut -f 1 -d " " | head -n 1` }
+
 # p
 p() { cd ~/Projects/$1;  }
 _p() { _files -W ~/Projects -/; }
