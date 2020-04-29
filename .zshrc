@@ -89,13 +89,10 @@ fi
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
 
-# alias t="rspec"
+alias t="rspec"
+alias tf="rspec --only-failures"
+alias wds="bin/webpack-dev-server"
 alias y="yarn"
-alias ys="yarn start"
-alias yt="yarn test"
-alias yl="yarn lint"
-alias yb="yarn --cwd backend"
-alias yf="yarn --cwd frontend"
 alias hv="hivemind"
 
 # p
@@ -113,9 +110,13 @@ compdef _p p
 # }
 # compdef _h h
 
-# rbenv
-# eval "$(rbenv init -)"
-
 # direnv
 eval "$(direnv hook zsh)"
+
+# asdf
+
+autoload -Uz compinit && compinit
+
+. $HOME/.asdf/asdf.sh
+. $HOME/.asdf/completions/asdf.bash
 
