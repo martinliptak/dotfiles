@@ -92,8 +92,9 @@ fi
 alias t="rspec"
 alias tf="rspec --only-failures"
 alias wds="bin/webpack-dev-server"
+alias vd="bin/vite dev"
 alias y="yarn"
-alias hv="hivemind"
+alias oo="overmind s"
 
 # shoot
 shoot() { kill -9 `ps ax | grep $1 | cut -f 1 -d " " | head -n 1` }
